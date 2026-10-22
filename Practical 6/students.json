@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "Harsh Joshi",
+        "department": "IT",
+        "semester": 3,
+        "marks": 82,
+        "email": "harsh@example.com"
+    },
+    {
+        "id": 2,
+        "name": "Rahul Patel",
+        "department": "CSE",
+        "semester": 3,
+        "marks": 88,
+        "email": "rahul@example.com"
+    },
+    {
+        "id": 3,
+        "name": "Priya Shah",
+        "department": "ECE",
+        "semester": 3,
+        "marks": 79,
+        "email": "priya@example.com"
+    },
+    {
+        "id": 4,
+        "name": "Vishal Mehta",
+        "department": "CE",
+        "semester": 3,
+        "marks": 91,
+        "email": "vishal@example.com"
+    },
+    {
+        "id": 5,
+        "name": "Neha Patel",
+        "department": "IT",
+        "semester": 3,
+        "marks": 85,
+        "email": "neha@example.com"
+    },
+    {
+        "id": 6,
+        "name": "Aarav Desai",
+        "department": "CSE",
+        "semester": 3,
+        "marks": 76,
+        "email": "aarav@example.com"
+    },
+    {
+        "id": 7,
+        "name": "Riya Joshi",
+        "department": "IT",
+        "semester": 3,
+        "marks": 94,
+        "email": "riya@example.com"
+    },
+    {
+        "id": 8,
+        "name": "Karan Shah",
+        "department": "ECE",
+        "semester": 3,
+        "marks": 81,
+        "email": "karan@example.com"
+    },
+    {
+        "id": 9,
+        "name": "Anjali Patel",
+        "department": "CE",
+        "semester": 3,
+        "marks": 87,
+        "email": "anjali@example.com"
+    },
+    {
+        "id": 10,
+        "name": "Dhruv Mehta",
+        "department": "IT",
+        "semester": 3,
+        "marks": 90,
+        "email": "dhruv@example.com"
+    },
+    {
+        "id": 11,
+        "name": "Meet Shah",
+        "department": "CSE",
+        "semester": 3,
+        "marks": 73,
+        "email": "meet@example.com"
+    },
+    {
+        "id": 12,
+        "name": "Krisha Patel",
+        "department": "ECE",
+        "semester": 3,
+        "marks": 89,
+        "email": "krisha@example.com"
+    }
+]

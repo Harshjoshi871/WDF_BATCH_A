@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profiles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Profiles</h1>
+        <p>Dynamic Data using Fetch API</p>
+    </header>
+
+    <main class="container">
+
+        <section class="controls">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search student by name..."
+            >
+
+            <select id="departmentFilter">
+                <option value="all">All Departments</option>
+                <option value="IT">IT</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="CE">CE</option>
+            </select>
+
+            <select id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="nameAsc">Name A-Z</option>
+                <option value="nameDesc">Name Z-A</option>
+                <option value="marksHigh">Marks High-Low</option>
+                <option value="marksLow">Marks Low-High</option>
+            </select>
+        </section>
+
+        <p id="loading">Loading student data...</p>
+
+        <p id="error"></p>
+
+        <section id="studentContainer" class="student-container"></section>
+
+        <div class="pagination">
+            <button id="prevBtn">Previous</button>
+            <span id="pageNumber">Page 1</span>
+            <button id="nextBtn">Next</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Practical 6 | Fetch API and JSON</p>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
