@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Practical 13: Asynchronous AJAX CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <span class="logo-badge">⚡</span>
+                <div>
+                    <h1>StudentHub Portal</h1>
+                    <p>Practical 13: AJAX & JSON API CRUD (Zero Reload)</p>
+                </div>
+            </div>
+            <nav>
+                <a href="../Practical 8/test_connection.php">Database</a>
+                <a href="../Practical 9/register.php">Practical 9: Register</a>
+                <a href="../Practical 10/login.php">Practical 10: Login</a>
+                <a href="../Practical 11/index.php">Practical 11: Students</a>
+                <a href="../Practical 12/index.php">Practical 12: Events</a>
+                <a class="active" href="index.html">Practical 13: AJAX CRUD</a>
+                <a href="../Practical 14/index.php">Practical 14: Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="card app-card">
+            <div class="toolbar">
+                <div>
+                    <h2>Asynchronous Event Hub</h2>
+                    <p>Consume PHP JSON API endpoints using JavaScript <code>fetch()</code> with real-time UI updates.</p>
+                </div>
+                <div>
+                    <button id="openAddModalBtn" class="btn btn-primary">+ Add New Event (AJAX)</button>
+                </div>
+            </div>
+
+            <!-- Controls bar with debounced search -->
+            <div class="controls-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search events dynamically (300ms debounce)...">
+                </div>
+
+                <div class="filter-box">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Seminar">Seminar</option>
+                    </select>
+                </div>
+
+                <button id="refreshBtn" class="btn btn-outline" title="Refresh Feed">🔄 Refresh</button>
+            </div>
+
+            <!-- Loading Spinner State -->
+            <div id="loadingSpinner" class="spinner-container" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading events via JSON API...</p>
+            </div>
+
+            <!-- Error Banner State -->
+            <div id="errorState" class="alert alert-danger" style="display: none;"></div>
+
+            <!-- Event Grid Container -->
+            <div id="eventGrid" class="event-grid"></div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <p>No events found matching your query.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add / Edit Modal -->
+    <div id="eventModal" class="modal-overlay" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 id="modalTitle">Create New Event</h3>
+                <button type="button" class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+
+            <form id="eventForm">
+                <input type="hidden" id="eventId">
+
+                <div class="form-group">
+                    <label for="modalEventTitle">Event Title *</label>
+                    <input type="text" id="modalEventTitle" placeholder="e.g. Next-Gen Web Technologies" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modalEventCategory">Category *</label>
+                        <select id="modalEventCategory" required>
+                            <option value="Technical">Technical</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Seminar">Seminar</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modalEventDate">Event Date *</label>
+                        <input type="date" id="modalEventDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalEventDesc">Description</label>
+                    <textarea id="modalEventDesc" rows="3" placeholder="Key topics, speaker, venue..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalEventStatus">Registration Status</label>
+                    <select id="modalEventStatus">
+                        <option value="open">Open</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveEventBtn">Save Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <footer>
+        <p>© 2026 StudentHub Portal | CHARUSAT - ITUE203 Web Development Frameworks</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
